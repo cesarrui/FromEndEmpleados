@@ -23,7 +23,5 @@ export class EmpleadoService {
   update(modelo:Empleado): Observable<Empleado>{
     return this.http.put<Empleado>(`${this.endPoint}UpdateEmpleado`,modelo);
   }
-  delete(idEmpleado: number): Observable<void>{
-    return this.http.delete<void>(`${this.endPoint}DeleteEmpleado/${idEmpleado}`);
-  }
+  
 }
