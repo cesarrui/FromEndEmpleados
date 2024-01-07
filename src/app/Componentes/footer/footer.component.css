@@ -1,0 +1,14 @@
+/* app-footer.component.css */
+
+.footer {
+    background-color: #3F51B5; /* Azul */
+    color: #fff; /* Blanco */
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
