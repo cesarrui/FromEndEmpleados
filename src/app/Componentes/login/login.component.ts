@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/Interfaces/usuario';
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
    constructor(
      private _usuarioService: UsuarioServiceService,
      private fb: FormBuilder, // Inyecta FormBuilder
-     private router: Router
+     private router: Router,
+     private _snackBar: MatSnackBar,
    ) {
      // Construye el formulario en el constructor
      this.form = this.fb.group({
@@ -44,6 +46,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
           this._usuarioService.isLoggedIn = true;
         }
+        else{
+          this.mostrarAlerta("Su usuario no fue encontrado","Error");
+        }
 
         return new Observable<number>((observer) => {
           observer.next(data);
@@ -57,6 +62,14 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     
+  }
+
+  mostrarAlerta(msg: string, accion: string) {
+    this._snackBar.open(msg, accion,{
+      horizontalPosition:"end",
+      verticalPosition:"top",
+      duration:3000
+    });
   }
 
   
