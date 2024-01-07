@@ -1,0 +1,100 @@
+<h1 mat-dialog-title>{{tituloAccion}} Empleado</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formEmpleado">
+        <mat-grid-list cols="1" rowHeight="80px">
+            <mat-grid-tile *ngIf="_empleadoServicio.actualizar">
+                <mat-form-field appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado">
+                        <mat-option value="Activo">Activo</mat-option>
+                        <mat-option value="Inactivo">Inactivo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                <mat-label>Tipo Documento</mat-label>
+                <mat-select formControlName="idDocumento">
+                    <mat-option *ngFor="let item of listaDocumentos" [value]="item.idDocumento">
+                    {{item.nombreDocumento}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+        </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Documento</mat-label>
+                    <input matInput formControlName="numeroDocumento" type="text" autocomplete="off">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre" autocomplete="off">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="apellido" autocomplete="off">
+                  </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Fecha de contratación</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="fechaContratacion" autocomplete="off">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+              
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                <mat-label>Pais</mat-label>
+                <mat-select formControlName="idPais" (selectionChange)="areas($event.value)" >
+                   
+                    <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
+                    {{item.nombrePais}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+        </mat-grid-tile>
+            <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Area</mat-label>
+                    <mat-select formControlName="idArea" (selectionChange)="subareas($event.value)" >
+                       
+                        <mat-option *ngFor="let item of listaAreas" [value]="item.idArea">
+                        {{item.nombreArea}}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                <mat-label>Sub Area</mat-label>
+                <mat-select formControlName="idSubArea">
+                    <mat-option *ngFor="let item of listasSubAreas" [value]="item.idSubArea">
+                    {{item.nombreSubArea}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+        </mat-grid-tile>
+
+        
+            
+          </mat-grid-list>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+  <button mat-raised-button  color="primary"
+    [disabled]="formEmpleado.invalid"
+    (click)="AgregarEditarEmpleado()"
+  >{{botonAccion}}
+</button>
+</div>
