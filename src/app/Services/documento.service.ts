@@ -16,6 +16,6 @@ export class DocumentoService {
   constructor(private http:HttpClient) { }
 
   getList():Observable<Documento[]>{
-    return this.http.get<Documento[]>(`${this.endPoint}GetDocumentos`);
+    return this.http.get<Documento[]>(`${environment.getdocumentos}`);
   }
 }

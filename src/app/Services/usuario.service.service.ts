@@ -14,7 +14,7 @@ export class UsuarioServiceService {
   constructor(private http:HttpClient) { }
 
   verificarUsuario(usuario: Usuario): Observable<number> {
-    return this.http.post<number>(`${this.endPoint}VerificarUsuario`, usuario);
+    return this.http.post<number>(`${environment.verificarUsuario}`, usuario);
   }
   
   cerrarSesion() {

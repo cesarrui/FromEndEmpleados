@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-desarrollo": "ng build --configuration production --base-href=/AdministracionEmpleados/ --deploy-url=/AdministracionEmpleados/ --build-optimizer"
   },
   "private": true,
   "dependencies": {

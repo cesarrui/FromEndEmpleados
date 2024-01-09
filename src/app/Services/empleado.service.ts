@@ -14,14 +14,14 @@ export class EmpleadoService {
   constructor(private http:HttpClient) { }
 
   getList():Observable<Empleado[]>{
-    return this.http.get<Empleado[]>(`${this.endPoint}GetEmpleados`);
+    return this.http.get<Empleado[]>(`${environment.getEmpleados}`);
   }
 
   add(modelo:Empleado): Observable<Empleado>{
-    return this.http.post<Empleado>(`${this.endPoint}AddEmpleado`,modelo);
+    return this.http.post<Empleado>(`${environment.addempleado}`,modelo);
   }
   update(modelo:Empleado): Observable<Empleado>{
-    return this.http.put<Empleado>(`${this.endPoint}UpdateEmpleado`,modelo);
+    return this.http.put<Empleado>(`${environment.updateEmpleado}`,modelo);
   }
   
 }
