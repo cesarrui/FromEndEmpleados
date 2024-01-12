@@ -1,4 +1,4 @@
-
+<div class="table-container">
 <div style="width: 82%;margin: 40px auto;">
     <h1>Lista de empleados</h1>
     <button mat-raised-button color="primary"  style="margin: 0px 5px 5px 1px;" (click)="openDialog()">Agregar Empleado</button>
@@ -7,7 +7,7 @@
       <mat-label>Buscar</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
     </mat-form-field>
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8" style="overflow-x: auto;">
       <table mat-table [dataSource]="dataSource"> 
         <ng-container matColumnDef="TipoDocumento">
           <th mat-header-cell *matHeaderCellDef> TipoDocumento </th>
@@ -52,9 +52,6 @@
             <button mat-icon-button color="primary" (click)="dialogoEditarEmpleado(element)" >
               <mat-icon>edit_square</mat-icon>
             </button>
-            <!-- <button mat-icon-button color="warn" (click)="dialogoEliminarEmpleado(element)">
-              <mat-icon>delete</mat-icon>
-            </button> -->
           </td>
           
         </ng-container>
@@ -69,3 +66,4 @@
       </mat-paginator>
     </div>
   </div>
+</div>

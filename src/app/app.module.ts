@@ -47,6 +47,7 @@ import { TableroComponent } from './Componentes/tablero/tablero.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
+import { FooterComponent } from './Componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ConfiguracionComponent } from './Componentes/configuracion/configuracio
     DialogAgregarEditarEmpleadosComponent,
     LoginComponent,
     TableroComponent,
-    ConfiguracionComponent
+    ConfiguracionComponent,
+    FooterComponent
     
   ],
   imports: [

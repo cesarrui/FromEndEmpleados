@@ -18,15 +18,15 @@ export class AreaService {
   constructor(private http:HttpClient) { }
 
   getListPais():Observable<Pais[]>{
-    return this.http.get<Pais[]>(`${this.endPoint}GetPaises`);
+    return this.http.get<Pais[]>(`${environment.getPaises}`);
   }
   
   getListArea(idPais:number):Observable<Area[]>{
-    return this.http.get<Area[]>(`${this.endPoint}GetAreas/${idPais}`);
+    return this.http.get<Area[]>(`${environment.getAreas.replace("{idPais}",idPais.toString())}`);
   }
 
   getListSubAreaPorArea(idArea:number):Observable<Subarea[]>{
-    return this.http.get<Subarea[]>(`${this.endPoint}GetSubAreas/${idArea}`);
+    return this.http.get<Subarea[]>(`${environment.getSubAreas.replace("{idArea}", idArea.toString())}`);
   }
   
 }

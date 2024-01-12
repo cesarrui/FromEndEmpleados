@@ -5,7 +5,15 @@
 export const environment = {
   production: false,
   endPoint1: "http://localhost:7131/api/",
-  endPoint2: "http://localhost:7114/api/"
+  endPoint2: "http://localhost:7114/api/",
+  addempleado: "http://localhost:7131/api/AddEmpleado",
+  getEmpleados: "http://localhost:7131/api/GetEmpleados",
+  updateEmpleado: "http://localhost:7131/api/UpdateEmpleado",
+  getdocumentos: "http://localhost:7131/api/GetDocumentos",
+  verificarUsuario: "http://localhost:7131/api/VerificarUsuario",
+  getAreas: "http://localhost:7114/api/GetAreas/{idPais}",
+  getPaises: "http://localhost:7114/api/GetPaises",
+  getSubAreas: "http://localhost:7114/api/GetSubAreas/{idArea}"
 };
 
 /*
